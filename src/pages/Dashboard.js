@@ -1,9 +1,18 @@
 import React, { Component } from 'react';
+import Hero from "../Hero";
 
 class Dashboard extends Component {
   render() {
     return (
-        <h1>Dashboard</h1>
+    	<div>
+	        <nav className="breadcrumb">
+			  <ul>
+			    <li><a>General</a></li>
+			    <li className="is-active"><a>Dashboard</a></li>
+			  </ul>
+			</nav>
+		  <Hero text="Dashboard"/>
+		</div>
     );
   }
 }

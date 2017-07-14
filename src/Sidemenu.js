@@ -9,15 +9,15 @@ class Sidemenu extends Component {
             {
                 name: "Dashboard",
                 category: "General",
-                link: "#"
+                link: "dashboard"
             },{
                 name: "Costumers",
                 category: "General",
-                link: "#"
+                link: "costumers"
             },{
                 name: "Team Settings",
                 category: "Administration",
-                link: "#"
+                link: "teamsettings"
             },{
                 name: "Manage Your Team",
                 category: "Administration",

@@ -1,4 +1,9 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import {
+  Link,
+  withRouter
+} from 'react-router-dom';
 
 class MenuItems extends Component {
 
@@ -7,9 +12,15 @@ class MenuItems extends Component {
         this.state = {list: props.listmenu, category: props.category};
     }
 
-    render() {
+    static propTypes = {
+      match: PropTypes.object.isRequired,
+      location: PropTypes.object.isRequired,
+      history: PropTypes.object.isRequired
+    }
 
+    render() {
         let category = this.state.category;
+        const { match, location, history } = this.props
 
         return (
             <ul className="menu-list">
@@ -19,9 +30,9 @@ class MenuItems extends Component {
                 }).map(function(item){
                     return (
                         <li key={item.name}>
-                          <a>
-                            <Link to={item.link}>{item.name}</Link>
-                          </a>
+                            <Link className={(location.pathname === "/" + item.link) ? 'is-active' : ''} to={item.link}>
+                              {item.name}
+                            </Link>
                               {item.submenu ? (
                                   <ul>
                                       {
@@ -44,4 +55,4 @@ class MenuItems extends Component {
         }
 }
 
-export default MenuItems;
+export default withRouter(MenuItems);
